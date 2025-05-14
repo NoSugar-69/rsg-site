@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	.prose-tatar {
+		@apply prose lg:prose-lg prose-p:text-pretty prose-headings:text-balance max-w-4xl mx-auto h2-style h3-style h4-style prose-a:text-blue-500 prose-a:underline-offset-2;
+	}
+	.h2-style {
+		@apply prose-h2:font-black prose-h2:before:absolute prose-h2:before:w-1 prose-h2:before:h-full prose-h2:before:bg-red-300 prose-h2:before:rounded-xl prose-h2:relative prose-h2:before:-ml-5 prose-h2:pl-5;
+	}
+	.h3-style {
+		@apply prose-h3:font-bold prose-h3:before:absolute prose-h3:before:w-1 prose-h3:before:h-full prose-h3:before:bg-green-200 prose-h3:before:rounded-xl prose-h3:relative prose-h3:before:-ml-5 prose-h3:pl-5;
+	}
+	.h4-style {
+		@apply prose-h4:font-bold prose-h4:before:absolute prose-h4:before:w-1 prose-h4:before:h-full prose-h4:before:bg-zinc-200 prose-h4:before:rounded-xl prose-h4:relative prose-h4:before:-ml-5 prose-h4:pl-5;
+	}
+
+	.main-title {
+		@apply lg:text-6xl -tracking-[2px] text-transparent bg-clip-text bg-gradient-to-b from-black to-zinc-700 text-5xl xl:text-7xl font-black text-center;
+	}
+	.instagram-gradient-new {
+		background: -moz-linear-gradient(
+			45deg,
+			#f09433 0%,
+			#e6683c 25%,
+			#dc2743 50%,
+			#cc2366 75%,
+			#bc1888 100%
+		);
+		background: -webkit-linear-gradient(
+			45deg,
+			#f09433 0%,
+			#e6683c 25%,
+			#dc2743 50%,
+			#cc2366 75%,
+			#bc1888 100%
+		);
+		background: linear-gradient(
+			45deg,
+			#f09433 0%,
+			#e6683c 25%,
+			#dc2743 50%,
+			#cc2366 75%,
+			#bc1888 100%
+		);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+	}
+	.instagram-color {
+		background: radial-gradient(
+			circle at 30% 107%,
+			#fdf497 0%,
+			#fdf497 5%,
+			#fd5949 45%,
+			#d6249f 60%,
+			#285aeb 90%
+		);
+	}
+	.instagram-gradient {
+		background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+	}
+
+	@keyframes buttonheartbeat {
+		0% {
+			box-shadow: 0 0 0 0 #6097ef;
+			transform: scale(1);
+		}
+
+		50% {
+			box-shadow: 0 0 0 7px rgba(59, 130, 246, 0);
+			transform: scale(1.015);
+		}
+
+		to {
+			box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+			transform: scale(1);
+		}
+	}
+
+	.animate-buttonheartbeat {
+		animation: buttonheartbeat 2s ease-in-out infinite;
+	}
+}

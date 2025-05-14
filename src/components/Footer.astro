@@ -1,0 +1,16 @@
+---
+import { linksFooter, linksNav } from "@/data/links"
+import { Icon } from "astro-icon/components"
+import { getCollection } from "astro:content"
+import Container from "./Container.astro"
+
+const year = () => new Date().getFullYear()
+const linksCenters = await getCollection("centers")
+const linksPage = await getCollection("pages")
+---
+
+<footer class="bg-zinc-100 py-12">
+	<Container>
+
+	</Container>
+</footer>

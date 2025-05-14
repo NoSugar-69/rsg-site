@@ -1,0 +1,64 @@
+---
+import BlockInfo from "@/components/BlockInfo.astro"
+import GridInfo from "@/components/GridInfo.astro"
+import Layout from "@/layouts/Layout.astro"
+import { Icon } from "astro-icon/components"
+import { Image } from "astro:assets"
+import { getCollection, render } from "astro:content"
+
+export async function getStaticPaths() {
+	const posts = await getCollection("products")
+	return posts.map(post => ({
+		params: { slug: post.id },
+		props: post,
+	}))
+}
+const post = Astro.props
+const { Content } = await render(post)
+
+export const prerender = true
+---
+
+<Layout {...post.data} type ogImage={post.data.ogImage?.src}>
+	<div class="mx-auto">
+		<div class="flex items-center md:flex-nowrap flex-wrap gap-12">
+			<Image
+				class="object-contain max-w-full md:max-w-[320px] rounded-xl border h-[320px]"
+				src={post.data.ogImage}
+				alt={post.data.title}
+			/>
+			<div class="flex flex-col gap-6">
+				<h1 class="text-5xl font-black">{post.data.title}</h1>
+				<p class="text-xl text-zinc-600 leading-relaxed">{post.data.description}</p>
+				{
+					post.data.moreInfo && (
+						<div class="font-medium max-w-fit bg-blue-500 text-white px-3 py-1.5 rounded-md">
+							{post.data.moreInfo}
+						</div>
+					)
+				}
+				<a
+					target="_blank"
+					href={`https://wa.me/77074989953?text=Здравствуйте!%20Интересует%20товар%20"${post.data.title}"\n\n.%0A%0AТовар:%20${new URL(Astro.url, Astro.site)}`}
+					class="text-white transition-colors hover:bg-green-600 bg-green-500 rounded-lg px-5 self-start font-medium py-2 flex text-lg items-center gap-1"
+					><Icon name="mdi:cart-plus" /><span>Заказать</span></a
+				>
+			</div>
+		</div>
+
+		<!-- <div class="flex gap-3 items-center flex-wrap">
+			{
+				posts &&
+					posts.map(item => (
+						<div class="bg-blue-500 text-white px-3 py-1.5 rounded-md">
+							{item.data.text}
+						</div>
+					))
+			}
+		</div> -->
+
+		<main class="mt-12 p-6 rounded-xl border prose prose-lg prose-blue max-w-none">
+			<Content components={{ GridInfo, BlockInfo }} />
+		</main>
+	</div>
+</Layout>

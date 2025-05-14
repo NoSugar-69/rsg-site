@@ -1,0 +1,57 @@
+---
+import Container from "@/components/Container.astro"
+import Header from "@/components/Header.astro"
+import SEO from "@/components/SEO.astro"
+import "@/styles/tailwind.css"
+
+interface Props {
+	title: string
+	description: string
+	datePublished?: string
+	bodyStyle?: string
+	dateModified?: string
+	indexRobots?: string
+	type?: any
+	ogImage?: any
+	mainTitlePresent?: string
+}
+
+const {
+	datePublished,
+	bodyStyle,
+	dateModified,
+	indexRobots,
+	title,
+	type,
+	description,
+	ogImage,
+} = Astro.props
+---
+
+<html lang="ru" class="scroll-m-5 scroll-smooth subpixel-antialiased">
+	<head>
+		<SEO
+			title={title}
+			description={description}
+			indexRobots={indexRobots}
+			ogImage={ogImage}
+			type={type}
+			datePublished={datePublished}
+			dateModified={dateModified}
+		/>
+
+		<!-- <script src="/src/pwa.ts"></script> -->
+		<!-- {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />} -->
+	</head>
+	<body
+		class={`${bodyStyle || ""} scroll-m-5 flex min-h-screen flex-col text-zinc-900 bg-white`}
+	>
+		<Header />
+		<Container class="py-20">
+			<div class="flex flex-col gap-32">
+				<slot />
+			</div>
+		</Container>
+		<!-- <Footer /> -->
+	</body>
+</html>

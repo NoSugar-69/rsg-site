@@ -1,0 +1,15 @@
+---
+const { count, title, description } = Astro.props
+---
+
+<div aria-label={title} class="flex flex-col gap-3">
+	<span class="text-blue-600 text-3xl mb-4">{count || "1"}</span>
+	<hr class="border-blue-600 border-[1px]" />
+	<h2 class="text-2xl font-medium">{title || "Контроль качества на всех этапах"}</h2>
+	<p class="text-lg font-light text-zinc-600 leadint-relaxed">
+		{
+			description ||
+				"Мы работаем только с проверенными заводами, а вся продукция проходит сертификацию и тестирование."
+		}
+	</p>
+</div>

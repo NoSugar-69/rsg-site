@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets"
+
+const { data, id } = Astro.props
+---
+
+<article class="shadow-sm rounded-xl border-[0.5px]">
+	{
+		data.ogImage && (
+			<Image
+				format={"webp"}
+				src={data.ogImage}
+				class="rounded-xl select-none h-[200px] object-contain"
+				alt={data.title}
+			/>
+		)
+	}
+	<div class="flex flex-col gap-4 p-6">
+		<h2 class="text-2xl h-[64px] font-bold line-clamp-2">{data.title}</h2>
+		<p class="text-zinc-600 line-clamp-2 leadint-relaxed">
+			{data.description}
+		</p>
+		<a
+			href={`/products/${id}/`}
+			class="text-white transition-colors hover:bg-blue-600 bg-blue-500 rounded-lg px-5 self-start font-medium py-2"
+			>Подробнее</a
+		>
+	</div>
+</article>
