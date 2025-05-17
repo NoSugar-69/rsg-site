@@ -9,8 +9,12 @@ export default config({
 	// cloud: {
 	// 	project: "rsg-valve/rsg-valve",
 	// },
+	// storage: {
+	// 	kind: "local",
+	// },
 	storage: {
-		kind: "local",
+		kind: "github",
+		repo: `NoSugar-69/rsg-site`,
 	},
 	collections: {
 		products,
