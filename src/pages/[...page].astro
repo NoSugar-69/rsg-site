@@ -15,7 +15,7 @@ const { Content } = await render(page)
 export const prerender = true
 ---
 
-<Layout {...page.data} ogImage={page.data.ogImage?.src}>
+<Layout containerOn {...page.data} ogImage={page.data.ogImage?.src}>
 	<div class="mx-auto">
 		<h1 class="text-5xl font-black max-w-[720px]">
 			{page.data.title}

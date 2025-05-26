@@ -6,36 +6,49 @@ import Logo from "./Logo.astro"
 const link_style = "text-medium text-lg text-white hover:text-zinc-200 transition-colors"
 ---
 
-<header class="py-5 bg-blue-500 z-10">
+<header class="z-50 py-5 bg-blue-700 z-10">
 	<Container class="flex justify-between items-center gap-3">
 		<Logo />
 		<nav class="md:flex hidden gap-12 items-center">
-			<!-- <a href="#" class={link_style}>Команда</a> -->
+			<a href="/#почему-мы" class={link_style}>Почему мы?</a>
 			<a href="/#products" class={link_style}>Продукция</a>
-			<!-- <a href="#" class={link_style}>Отзывы</a> -->
-			<a href="/#contacts" class={link_style}>Контакты</a>
+			<a href="#" class={link_style}>Контакты</a>
+			<a href="/#как-мы-работаем" class={link_style}>Как мы работаем?</a>
 		</nav>
 
 		<nav
 			id="menu"
 			class="hidden absolute top-[90px] left-0 flex flex-col w-full h-full bg-black/70 backdrop-blur-md gap-12 items-center pt-12"
 		>
-			<a href="#" class={cn(link_style, "text-2xl")}>Команда</a>
+			<a href="/#почему-мы" class={cn(link_style, "text-2xl")}>Почему мы?</a>
 			<a href="/#products" class={cn(link_style, "text-2xl")}>Продукция</a>
-			<a href="#" class={cn(link_style, "text-2xl")}>Отзывы</a>
-			<a href="/#contacts" class={cn(link_style, "text-2xl")}>Контакты</a>
-			<a
+			<a href="#" class={cn(link_style, "text-2xl")}>Контакты</a>
+			<a href="/#как-мы-работаем" class={cn(link_style, "text-2xl")}>Как мы работаем?</a>
+			<a href="tel:+77074989953" class={cn(link_style, "text-2xl")}
+				>+7 (707) 498-99-53
+			</a>
+			<a href="mailto:rsgvalveab@gmail.com" class={cn(link_style, "text-2xl")}
+				>rsgvalveab@gmail.com</a
+			>
+			<!-- <a
 				target="_blank"
 				href="https://wa.me/77074989953?text=Здравствуйте!%20Свяжитесь%20со%20мной%20по%20этому%20номеру."
 				class="px-5 py-2 bg-blue-500 text-white rounded-md text-2xl">Заказать звонок</a
-			>
+			> -->
+
+			<!-- +7(707) 498-99-53 
+      rsgvalveab@gmail.com -->
 		</nav>
-		<a
+		<!-- <a
 			target="_blank"
 			href="https://wa.me/77074989953?text=Здравствуйте!%20Свяжитесь%20со%20мной%20по%20этому%20номеру."
 			class="justify-end items-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 py-2 px-5 animate-buttonheartbeat hidden md:inline-flex rounded-md bg-blue-600 hover:bg-blue-700 font-medium text-white"
 			>Заказать звонок</a
-		>
+		> -->
+		<div class="flex text-white flex-col items-center">
+			<a href="tel:+77074989953">+7 (707) 498-99-53 </a>
+			<a href="mailto:rsgvalveab@gmail.com">rsgvalveab@gmail.com</a>
+		</div>
 		<button
 			id="btn_open_menu"
 			class="text-white md:hidden block transition-colors hover:bg-blue-700 bg-blue-600 rounded-lg px-5 font-medium py-2"

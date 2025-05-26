@@ -1,5 +1,6 @@
 ---
 import Container from "@/components/Container.astro"
+import Footer from "@/components/Footer.astro"
 import Header from "@/components/Header.astro"
 import SEO from "@/components/SEO.astro"
 import "@/styles/tailwind.css"
@@ -12,6 +13,7 @@ interface Props {
 	dateModified?: string
 	indexRobots?: string
 	type?: any
+	containerOn?: any
 	ogImage?: any
 	mainTitlePresent?: string
 }
@@ -25,6 +27,7 @@ const {
 	type,
 	description,
 	ogImage,
+	containerOn,
 } = Astro.props
 ---
 
@@ -47,11 +50,19 @@ const {
 		class={`${bodyStyle || ""} scroll-m-5 flex min-h-screen flex-col text-zinc-900 bg-white`}
 	>
 		<Header />
-		<Container class="py-20">
-			<div class="flex flex-col gap-32">
-				<slot />
-			</div>
-		</Container>
-		<!-- <Footer /> -->
+		{
+			containerOn ? (
+				<Container class="py-20">
+					<div class="flex flex-col gap-32">
+						<slot />
+					</div>
+				</Container>
+			) : (
+				<div class="flex flex-col gap-16">
+					<slot />
+				</div>
+			)
+		}
+		<Footer />
 	</body>
 </html>
