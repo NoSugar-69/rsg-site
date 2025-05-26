@@ -4,12 +4,6 @@ import { config } from "@keystatic/core"
 
 export default config({
 	// storage: {
-	// 	kind: "cloud",
-	// },
-	// cloud: {
-	// 	project: "rsg-valve/rsg-valve",
-	// },
-	// storage: {
 	// 	kind: "local",
 	// },
 	storage: {

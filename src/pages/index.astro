@@ -7,47 +7,51 @@ import { getCollection } from "astro:content"
 
 const cards = [
 	{
-		title: "Контроль качества на всех этапах",
+		title: "Прямые поставки с заводов Китая",
 		count: "01",
 		description:
-			"Мы работаем только с проверенными заводами, а вся продукция проходит сертификацию и тестирование.",
+			"Без посредников. Заводская цена — экономия до 50% по сравнению с локальными дистрибьюторами.",
 	},
 	{
-		title: "Прямые поставки без переплат",
+		title: "Работаем официально — с юрлицами и тендерами",
 		count: "02",
 		description:
-			"Закупаем товары напрямую у производителей в Китае, России и Казахстане, что позволяет удерживать цены на минимальном уровне.",
+			"Подписываем договор, выставляем счёт, предоставляем сертификаты, паспорта и полный комплект документов.",
 	},
 	{
-		title: "Быстрая логистика и гибкие условия",
+		title: "Гибкие условия: под заказ и со склада",
 		count: "03",
 		description:
-			"Доставка от 7 до 30 дней. Работаем с заказами любой сложности, подбирая оптимальные решения под нужды клиента.",
+			"Можем отгрузить сразу со склада в РК или произвести под конкретную спецификацию — от DN50 до DN1200.",
 	},
 	{
-		title: "ТЕКСТ",
+		title: "Проверенное качество — ГОСТ, СТ РК",
 		count: "04",
-		description: "ТЕКСТ",
+		description:
+			"Каждая позиция проходит проверку перед отгрузкой. Сертификация, соответствие ГОСТ/СТ РК, гарантия — до 12 месяцев.",
 	},
 ]
 
 const steps = [
 	{
 		step: "1",
-		title: "Оставьте заявку",
-		description: "Отправьте всю нужную информацию.",
+		title: "Анализ запроса и подбор",
+		description:
+			"Вы присылаете спецификацию, КП или тендер — мы подбираем аналоги, согласовываем характеристики и сроки.",
 	},
 	{ separator: true },
 	{
 		step: "2",
-		title: "Мы позвоним",
-		description: "Наш специалист свяжется с вами и обсудит все вопросы.",
+		title: "Коммерческое предложение и договор",
+		description:
+			"Формируем финальное КП с расчётом всех расходов, подписываем договор, выставляем счёт. Работаем официально с юрлицами.",
 	},
 	{ separator: true },
 	{
 		step: "3",
-		title: "Заключаем договор",
-		description: "Указываем перечень работ, сроки, стоимость и порядок оплаты.",
+		title: "Поставка и сопровождение",
+		description:
+			"Организуем производство, логистику и таможню. Предоставляем сертификаты, паспорта, документы. Отгружаем в срок.",
 	},
 ]
 
@@ -89,7 +93,7 @@ const imagesslider = Array.from({ length: 9 }, (_, i) => `/${i + 1}.jpeg`)
 
 <Layout containerOn={false} title={title} description={description}>
 	<div
-		class="relative z-10 text-center h-[540px] flex flex-col items-center justify-center"
+		class="relative z-10 text-center h-[640px] flex flex-col items-center justify-center"
 		style='background-image: url("/bg.jpeg"); background-size: cover'
 	>
 		<div
@@ -121,7 +125,7 @@ const imagesslider = Array.from({ length: 9 }, (_, i) => `/${i + 1}.jpeg`)
 						images.map(img => (
 							<img
 								src={img.src}
-								class="border-[0.5px] rounded-lg shadow-sm object-cover w-[90px] h-[90px] md:w-[120px] md:h-[120px]"
+								class="border-[0.5px] rounded-lg shadow-sm object-cover w-[90px] h-[90px] md:w-[170px] md:h-[170px]"
 								alt={img.title}
 							/>
 						))
@@ -175,13 +179,15 @@ const imagesslider = Array.from({ length: 9 }, (_, i) => `/${i + 1}.jpeg`)
 			<div id="slider" class="flex transition-transform duration-500 ease-in-out">
 				{
 					imagesslider.map((src, index) => (
-						<img
-							src={src}
-							alt={`Слайд ${index + 1}`}
-							class="w-full h-auto rounded-md shrink-0 object-cover"
-							loading="lazy"
-							decoding="async"
-						/>
+						<div class="h-[420px] overflow-hidden rounded-md w-full shrink-0">
+							<img
+								src={src}
+								alt={`Слайд ${index + 1}`}
+								class="w-full h-full object-cover object-center"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
 					))
 				}
 			</div>
@@ -213,15 +219,13 @@ const imagesslider = Array.from({ length: 9 }, (_, i) => `/${i + 1}.jpeg`)
 				{
 					steps.map(item =>
 						item.separator ? (
-							<div class="bg-blue-700 w-1 md:w-5 h-10 md:h-1 self-center" />
+							<div class="bg-blue-700 w-1 md:w-20 h-10 md:h-1 self-center" />
 						) : (
-							<div class="bg-zinc-100 rounded-lg flex flex-col p-6 md:w-1/3">
-								<div class="flex items-center gap-3">
-									<span class="rounded-full bg-blue-700 h-[32px] flex items-center justify-center w-[32px] text-white text-xl">
-										{item.step}
-									</span>
-									<h3 class="font-bold text-2xl">{item.title}</h3>
-								</div>
+							<div class="bg-zinc-100 rounded-lg flex flex-col p-6 relative">
+								<span class="absolute -top-2 -left-2 rounded-full bg-blue-700 h-[32px] flex items-center justify-center w-[32px] text-white text-xl">
+									{item.step}
+								</span>
+								<h3 class="font-bold md:text-left text-2xl">{item.title}</h3>
 								<div class="mt-4">
 									<p class="text-left text-lg text-zinc-600 leading-relaxed">
 										{item.description}
